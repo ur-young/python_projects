@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> 이곡어때 | 게시판 </title>
+        <link rel="stylesheet" href="{% static 'data/title.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script language="javascript" src="{% static 'data/include.js' %}"></script>
+        
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+        </style>
+    </head>
+    <body>
+        <header id="get_header"></header>
+        <div id="wrapper">
+            <h1 align="center">게시판</h1>
+            <form action="/write/" method = "post">
+                <textarea class="write" name="title" placeholder="제목을 입력하세요"></textarea>
+                <br>
+                <textarea class="write" name="username" placeholder="닉네임을 입력하세요"></textarea>
+                <br>
+                <textarea rows="10" class="write" name="content" placeholder="내용을 입력하세요"></textarea>
+                <br>
+                <input type="password" class="write" name="pwd" placeholder="패스워드를 입력하세요">
+                <br>
+                <button id="write" type="submit">글 올리기</button>
+            </form>
+            <a href="/read/5/">목록<a>
+        </div>
+        <footer id="get_footer"></footer>
+    </body>
+</html>

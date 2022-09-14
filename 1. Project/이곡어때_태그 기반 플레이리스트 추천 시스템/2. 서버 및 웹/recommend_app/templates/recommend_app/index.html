@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이곡어때.</title>
+    <link rel="stylesheet" href="{% static 'data/title.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script language="javascript" src="{% static 'data/include.js' %}"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+    </style>
+</head>
+    <body>
+     
+        <header id="header">
+            <h1 id="title"><a id="a_title" href="/"> 이곡어때.<img src="/static/data/image/character.png" width="80" height="80"> </a></h1>
+            <div class="et-hero-tabs-container">
+                <a class="et-hero-tab2" href="/recommend">이곡어때</a>
+                <a class="et-hero-tab1" href="/read/1/">만든 사람</a>
+                <a class="et-hero-tab1" href="/read/2/">이 서비스에 대하여</a>
+                <a class="et-hero-tab1" href="/read/3/">Thanks To</a>
+                <a class="et-hero-tab1" href="/read/4/">Find Data</a>
+                <a class="et-hero-tab1" href="/read/5/">게시판</a><!--이거 지우기-->
+            </div>
+        </header>
+    <div id="wrapper">
+        <section>
+            <h2>곡 추천 어플리케이션</h2>
+            사용자에게 곡을 추천을 해주는 앱입니다.
+
+            <ul>
+                <li><a href="/recommend/">이 곡 어때?</a> </li>
+            </ul>
+            
+        </section>
+    </div>
+    <footer id="footer">
+        만든 사람 : <a href="/read/1/#young">윤혜영<a> <a href="/read/1/#bin">김빈<a> <a href="/read/1/#sik">장윤식<a> <a href="/read/1/#hee">조경희</a>
+    </footer>
+    
+    </body>
+</html>

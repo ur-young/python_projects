@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 이곡어때 | 게시판 </title>
+    <link rel="stylesheet" href="{% static 'data/title.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script language="javascript" src="{% static 'data/include.js' %}"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+    </style>
+</head>
+    <body>
+
+        <header id="get_header"></header>
+        <div id="wrapper">
+            <h1 align="center">게시판</h1>
+            <a href="/write/">게시글 작성하기</a>
+            <table>
+                <colgroup>
+                    <col width="5%">
+                    <col width="55%">
+                    <col width="20%">
+                    <col width="20%">
+                </colgroup>
+                <thead>
+                <th></th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>작성일</th>
+                </thead>                
+                <tbody><!--여기 for문으로 db 데이터 가져와서 표 만들기-->
+                {% for data in Board_list %}                  
+                <tr>
+                    <td>{{data.id}}</td>
+                    <td><a href="/read_post/{{data.id}}/">{{data.title}}</td><!--a 태그로 값 넘겨주고 해당 값 출력하는 페이지로-->
+                    <td>{{data.user_name}}</td>
+                    <td>{{data.create_at}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <footer id="get_footer"></footer>
+    </body>
+</html>
