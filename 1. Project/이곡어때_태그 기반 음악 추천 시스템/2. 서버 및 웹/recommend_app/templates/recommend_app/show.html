@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+{% load my_custom_tags %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이곡어때.</title>
+    <link rel="stylesheet" href="{% static 'data/title.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script language="javascript" src="{% static 'data/include.js' %}"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+    </style>
+</head>
+    <body>
+        
+            <header id="get_header"></header>
+        <div id="wrapper">
+            <div class="tab">
+                <ul class="tabnav">
+                    <li><a href="#recommend1">추천1</a></li>
+                    <li><a href="#recommend2">추천2</a></li>
+                </ul>
+                <div class="tabcontent">
+                    <div id="recommend1">
+                        <h2>
+                            {%for key in keyword %}
+                            {{key}}
+                            {% endfor %}
+                            에 가장 적합한 노래들을 출력합니다.
+                        </h2>
+                        <table>
+                
+                            <th></th>
+                            <th>노래 제목</th>
+                            <th>가수</th>
+                            {% for ind, data, artist in recommend_keyword_data %}            
+                                <tr>
+                                    <td>{{ind}}</td>    
+                                    <td><a href = "https://www.youtube.com/results?search_query={{data}}+{{artist}}" target=_blank>{{data}}</a></td>
+                                    <td>{{artist}}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <div id="recommend2">
+                        <table>
+        
+                            <th></th>
+                            <th>노래 제목</th>
+                            <th>가수</th>
+                            {% for ind, data, artist in recommend_song_data %}            
+                                <tr>
+                                    <td>{{ind}}</td>    
+                                    <td><a href = "https://www.youtube.com/results?search_query={{data}}+{{artist}}" target=_blank>{{data}}</a></td>
+                                    <td>{{artist}}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+    
+            <form method="post" action="/show/">
+                <div style="text-align:center">
+                <p>음악이 맘에 드셨나요?</p>
+                <input type="radio" name="grade" value="1">붐업
+                <input type="radio" name="grade" value="0">붐다운
+                <p><input type="submit" value="Submit"> <input type="reset" value="Reset"></p>
+                </div>
+              </form>
+        </div>
+        <footer id="get_footer"></footer>
+    </body>
+    </html>

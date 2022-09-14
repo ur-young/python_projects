@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이곡어때.</title>
+    <link rel="stylesheet" href="{% static 'data/title.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script language="javascript" src="{% static 'data/include.js' %}"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+    </style>
+</head>
+    <body>
+        <header id="get_header"></header>
+        <img src="{% static 'data/image/wordcloud.png' %}" alt="WordCloud">
+        <div id="wrapper">
+            <table>
+                <tr>
+                    <td>날짜</td>
+                    <td>입력</td>
+                    <td>만족 여부</td>
+                    <td>아이피</td>
+                </tr>
+    
+                {% for data in datas %}
+                <tr>
+                    <td>{{data.3}}</td>
+                    <td>{{data.1}}</td>
+                    <td>{{data.2}}</td>
+                    <td>{{data.0}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        <button onClick="window.location.reload()">새로고침</button>
+        <h1><a href="/recommend/">recommend</a></h1>
+   
+    </div>
+    <footer id="get_footer"></footer>
+</body>
+</html>

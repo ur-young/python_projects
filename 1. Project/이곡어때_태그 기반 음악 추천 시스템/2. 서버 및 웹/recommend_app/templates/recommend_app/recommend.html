@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이곡어때.</title>
+    <link rel="stylesheet" href="{% static 'data/title.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script language="javascript" src="{% static 'data/include.js' %}"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+    </style>
+</head>
+    <body>
+        <header id="get_header"></header>
+        <div id="wrapper">
+           
+    <ul>
+        <section>
+            <h1> 어떤 곡을 듣고 싶으신가요? </h1>
+            <form action="/recommend/" method = "post" >
+            <input id="search" name="genre" type="search" placeholder="듣고 싶은 곡의 장르를 입력하세요" autofocus  />
+            <input id="search" name="emotion" type="search" placeholder="듣고 싶은 곡의 감정을 입력하세요"  />
+            <input id="search" name="mood" type="search" placeholder="듣고 싶은 곡의 분위기를 입력하세요"  />
+            <select name="num">
+                <option value="5">5곡</option>
+                <option value="10" selected>10곡</option>
+                <option value="15">15곡</option>
+                <option value="20">20곡</option>
+            </select>
+            <button type="submit">Go</button>
+            </form>
+            </section>
+    </ul>
+   
+    </div>
+    <footer id="get_footer"></footer>
+</body>
+</html>
