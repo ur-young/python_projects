@@ -1,4 +1,0 @@
-*.json
-word2vec_playlist.vectors.npy
-word2vec_tag.vectors.npy
-.static_root/
